@@ -1,0 +1,20 @@
+services:
+  service:
+    build:
+      context: ./service/
+      args:
+        HOST_UID: ${HOST_UID:-1000}
+        HOST_GID: ${HOST_GID:-1000}
+        HOST_USERNAME: ${HOST_USERNAME:-user}
+        HOST_GROUPNAME: ${HOST_GROUPNAME:-group}
+    env_file:
+      - ./service/.env
+    environment:
+      - DISPLAY=${DISPLAY}
+    ports:
+      - 8000:8000
+    tty: true
+    volumes:
+      - /tmp/.X11-unix:/tmp/.X11-unix
+      - ./service/app:/app
+      - ./service/data:/data
