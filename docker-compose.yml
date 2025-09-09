@@ -9,8 +9,6 @@ services:
         HOST_GROUPNAME: ${HOST_GROUPNAME:-group}
     env_file:
       - ./service/.env
-    environment:
-      - DISPLAY=${DISPLAY}
     tty: true
     volumes:
       - /tmp/.X11-unix:/tmp/.X11-unix
