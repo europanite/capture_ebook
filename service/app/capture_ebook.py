@@ -26,6 +26,7 @@ def wait_start_via_click():
 
     def on_click(x, y, button, pressed):
         from pynput.mouse import Button
+
         if pressed and button == Button.left:
             return False  # stop after first left click
 
