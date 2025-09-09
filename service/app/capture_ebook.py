@@ -40,17 +40,48 @@ def main():
     parser = argparse.ArgumentParser(
         description="Take sequential screenshots of a viewport region and press a key to advance pages."
     )
-    parser.add_argument("--outdir", default="data", help="Output directory (default: data)")
-    parser.add_argument("--count", type=int, default=50, help="Number of pages to capture")
-    parser.add_argument("--start-index", type=int, default=0, help="Start index for filenames (default: 0)")
-    parser.add_argument("--left", type=int, default=300, help="Capture region left (pixels)")
-    parser.add_argument("--top", type=int, default=300, help="Capture region top (pixels)")
-    parser.add_argument("--width", type=int, default=800, help="Capture region width (pixels)")
-    parser.add_argument("--height", type=int, default=600, help="Capture region height (pixels)")
-    parser.add_argument("--next-key", default="right", help="Key to go to next page (default: right)")
-    parser.add_argument("--per-page-wait", type=float, default=2.0, help="Seconds to wait before each capture (default: 2.0)")
-    parser.add_argument("--filename-digits", type=int, default=4, help="Zero-padding digits in filenames (default: 4)")
-    parser.add_argument("--no-fail-safe", action="store_true", help="Disable pyautogui.FAILSAFE")
+    parser.add_argument(
+        "--outdir", default="data", help="Output directory (default: data)"
+    )
+    parser.add_argument(
+        "--count", type=int, default=50, help="Number of pages to capture"
+    )
+    parser.add_argument(
+        "--start-index",
+        type=int,
+        default=0,
+        help="Start index for filenames (default: 0)",
+    )
+    parser.add_argument(
+        "--left", type=int, default=300, help="Capture region left (pixels)"
+    )
+    parser.add_argument(
+        "--top", type=int, default=300, help="Capture region top (pixels)"
+    )
+    parser.add_argument(
+        "--width", type=int, default=800, help="Capture region width (pixels)"
+    )
+    parser.add_argument(
+        "--height", type=int, default=600, help="Capture region height (pixels)"
+    )
+    parser.add_argument(
+        "--next-key", default="right", help="Key to go to next page (default: right)"
+    )
+    parser.add_argument(
+        "--per-page-wait",
+        type=float,
+        default=2.0,
+        help="Seconds to wait before each capture (default: 2.0)",
+    )
+    parser.add_argument(
+        "--filename-digits",
+        type=int,
+        default=4,
+        help="Zero-padding digits in filenames (default: 4)",
+    )
+    parser.add_argument(
+        "--no-fail-safe", action="store_true", help="Disable pyautogui.FAILSAFE"
+    )
     args = parser.parse_args()
 
     # Configure PyAutoGUI
@@ -65,7 +96,7 @@ def main():
         print("Invalid region: --width and --height must be positive.")
         return
 
-    dir_path = os.path.join("/data",args.outdir)
+    dir_path = os.path.join("/data", args.outdir)
     os.makedirs(dir_path, exist_ok=True)
 
     region = (args.left, args.top, args.width, args.height)
@@ -75,7 +106,7 @@ def main():
     print(f"Start index      : {args.start_index}")
     print(f"Region (L,T,W,H) : {region}")
     print(f"Next-page key    : {args.next_key}")
-    print(f"Per-page wait    : {args.per_page_wait}s")   # ← 修正済み
+    print(f"Per-page wait    : {args.per_page_wait}s")
     print(f"Filename digits  : {args.filename_digits}")
     print(f"FAILSAFE         : {pyautogui.FAILSAFE}")
     print("========================")
@@ -91,7 +122,9 @@ def main():
             time.sleep(args.per_page_wait)
 
             img = pyautogui.screenshot(region=region)
-            filename = os.path.join(dir_path, str(idx).zfill(args.filename_digits) + ".png")
+            filename = os.path.join(
+                dir_path, str(idx).zfill(args.filename_digits) + ".png"
+            )
             img.save(filename)
             print("Created", filename, flush=True)
 
