@@ -1,4 +1,4 @@
-# capture_ebook
+# [Capture ebook](https://github.com/europanite/capture_ebook "Capture ebook")
 
 This script captures sequential screenshots of an online ebook page viewer.  
 It automatically saves each page as an image file and simulates pressing a key to advance pages.
