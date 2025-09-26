@@ -1,22 +1,6 @@
-#!/usr/bin/env python3
-"""
-Capture page-by-page screenshots from an online book viewer.
-
-⚠️ IMPORTANT
-- Use this script ONLY for lawful, personal use. 
-- Check the website's ToS and applicable copyright laws.
-- Do NOT share or redistribute captured images without permission.
-
-Requires:
-    Python 3.x
-    pyautogui
-    pynput
-"""
-
 import argparse
 import os
 import time
-
 import pyautogui
 from pynput import mouse
 
