@@ -1,5 +1,6 @@
 services:
-  service:
+  service_test:
+    container_name: service_test
     build:
       context: ./service/
       dockerfile: Dockerfile.test

@@ -33,7 +33,7 @@ jobs:
           HOST_USERNAME: ${{ secrets.HOST_USERNAME }}
           HOST_GROUPNAME: ${{ secrets.HOST_GROUPNAME }}
         run: |
-          docker compose -f docker-compose.yml -f docker-compose.test.yml run --rm backend_test
+          docker compose -f docker-compose.yml -f docker-compose.test.yml run --rm service_test
       - name: Cleanup
         env:
           DOCKER_BUILDKIT: 1
