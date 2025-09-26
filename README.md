@@ -4,6 +4,8 @@
 [![Python Lint](https://github.com/europanite/capture_ebook/actions/workflows/lint.yml/badge.svg)](https://github.com/europanite/capture_ebook/actions/workflows/lint.yml)
 [![pages-build-deployment](https://github.com/europanite/capture_ebook/actions/workflows/pages/pages-build-deployment/badge.svg)](https://github.com/europanite/capture_ebook/actions/workflows/pages/pages-build-deployment)
 
+Auto ebook capture.
+
 This script captures sequential screenshots of an online ebook page viewer.  
 It automatically saves each page as an image file and simulates pressing a key to advance pages.
 
