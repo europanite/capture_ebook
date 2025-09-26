@@ -30,7 +30,6 @@ jobs:
           HOST_GROUPNAME: ${{ secrets.HOST_GROUPNAME }}
         run: |
           docker compose build --pull
-      # ----- Tests -----
       - name: Pytest
         env:
           DOCKER_BUILDKIT: 1
@@ -43,7 +42,6 @@ jobs:
           docker compose run --rm \
             -e XDG_CACHE_HOME=/tmp/xdg-cache \
             --entrypoint sh service -lc 'mkdir -p /tmp/pytest_cache && pytest -q -o cache_dir=/tmp/pytest_cache'
-      # ----- Closing -----
       - name: Cleanup
         env:
           DOCKER_BUILDKIT: 1
