@@ -41,7 +41,11 @@ jobs:
         run: |
           docker compose run --rm \
             -e XDG_CACHE_HOME=/tmp/xdg-cache \
-            --entrypoint sh service -lc 'mkdir -p /tmp/pytest_cache && pytest -q -o cache_dir=/tmp/pytest_cache'
+            --entrypoint sh service -lc ' \
+            && python -m pip install -U pip \
+            && pip install -r requirements-dev.txt \
+            && mkdir -p /tmp/pytest_cache \
+            && pytest -q -o cache_dir=/tmp/pytest_cache'
       - name: Cleanup
         env:
           DOCKER_BUILDKIT: 1
