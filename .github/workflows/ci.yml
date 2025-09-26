@@ -33,23 +33,7 @@ jobs:
           HOST_USERNAME: ${{ secrets.HOST_USERNAME }}
           HOST_GROUPNAME: ${{ secrets.HOST_GROUPNAME }}
         run: |
-          docker compose build --pull
-      - name: Pytest
-        env:
-          DOCKER_BUILDKIT: 1
-          HOST_UID: "1000"
-          HOST_GID: "1000"
-          DISPLAY: ":1"
-          HOST_USERNAME: ${{ secrets.HOST_USERNAME }}
-          HOST_GROUPNAME: ${{ secrets.HOST_GROUPNAME }}
-        run: |
-          docker compose run --rm \
-            -e XDG_CACHE_HOME=/tmp/xdg-cache \
-            --entrypoint sh service -lc ' \
-            python -m pip install -U pip \
-            && pip install pytest==8.4.1 ruff==0.12.11 \
-            && mkdir -p /tmp/pytest_cache \
-            && pytest -q -o cache_dir=/tmp/pytest_cache'
+          docker compose -f docker-compose.yml -f docker-compose.test.yml run --rm backend_test
       - name: Cleanup
         env:
           DOCKER_BUILDKIT: 1
