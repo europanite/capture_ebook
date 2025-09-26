@@ -3,7 +3,8 @@
 Capture page-by-page screenshots from an online book viewer.
 
 ⚠️ IMPORTANT
-- Use this script ONLY for lawful, personal use. Check the website's ToS and applicable copyright laws.
+- Use this script ONLY for lawful, personal use. 
+- Check the website's ToS and applicable copyright laws.
 - Do NOT share or redistribute captured images without permission.
 
 Requires:
@@ -39,32 +40,21 @@ def wait_start_via_click():
 
 def main():
     parser = argparse.ArgumentParser(
-        description="Take sequential screenshots of a viewport region and press a key to advance pages."
+        description= \
+        "Take sequential screenshots of a viewport region and press a key to advance pages."
     )
-    parser.add_argument(
-        "--outdir", default="data", help="Output directory (default: data)"
-    )
-    parser.add_argument(
-        "--count", type=int, default=50, help="Number of pages to capture"
-    )
+    parser.add_argument("--outdir", default="data", help="Output directory (default: data)")
+    parser.add_argument("--count", type=int, default=50, help="Number of pages to capture")
     parser.add_argument(
         "--start-index",
         type=int,
         default=0,
         help="Start index for filenames (default: 0)",
     )
-    parser.add_argument(
-        "--left", type=int, default=300, help="Capture region left (pixels)"
-    )
-    parser.add_argument(
-        "--top", type=int, default=300, help="Capture region top (pixels)"
-    )
-    parser.add_argument(
-        "--width", type=int, default=800, help="Capture region width (pixels)"
-    )
-    parser.add_argument(
-        "--height", type=int, default=600, help="Capture region height (pixels)"
-    )
+    parser.add_argument("--left", type=int, default=300, help="Capture region left (pixels)")
+    parser.add_argument("--top", type=int, default=300, help="Capture region top (pixels)")
+    parser.add_argument("--width", type=int, default=800, help="Capture region width (pixels)")
+    parser.add_argument("--height", type=int, default=600, help="Capture region height (pixels)")
     parser.add_argument(
         "--next-key", default="right", help="Key to go to next page (default: right)"
     )
@@ -80,9 +70,7 @@ def main():
         default=4,
         help="Zero-padding digits in filenames (default: 4)",
     )
-    parser.add_argument(
-        "--no-fail-safe", action="store_true", help="Disable pyautogui.FAILSAFE"
-    )
+    parser.add_argument("--no-fail-safe", action="store_true", help="Disable pyautogui.FAILSAFE")
     args = parser.parse_args()
 
     # Configure PyAutoGUI
@@ -123,9 +111,7 @@ def main():
             time.sleep(args.per_page_wait)
 
             img = pyautogui.screenshot(region=region)
-            filename = os.path.join(
-                dir_path, str(idx).zfill(args.filename_digits) + ".png"
-            )
+            filename = os.path.join(dir_path, str(idx).zfill(args.filename_digits) + ".png")
             img.save(filename)
             print("Created", filename, flush=True)
 
