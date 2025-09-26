@@ -47,7 +47,7 @@ jobs:
             -e XDG_CACHE_HOME=/tmp/xdg-cache \
             --entrypoint sh service -lc ' \
             python -m pip install -U pip \
-            && pip install -r requirements-dev.txt \
+            && pip install pytest==8.4.1 ruff==0.12.11 \
             && mkdir -p /tmp/pytest_cache \
             && pytest -q -o cache_dir=/tmp/pytest_cache'
       - name: Cleanup

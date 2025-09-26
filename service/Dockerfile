@@ -42,6 +42,10 @@ ENV HOST_GID=${HOST_GID}
 RUN groupadd -g $HOST_GID $HOST_GROUPNAME && \
     useradd -m -s /bin/bash -u $HOST_UID -g $HOST_GID $HOST_USERNAME
 
+COPY requirements.txt ./
+
+RUN pip install --no-cache-dir -r requirements.txt
+
 # App workspace
 WORKDIR /app
 COPY . /app
