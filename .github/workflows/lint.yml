@@ -34,7 +34,7 @@ jobs:
 
       - name: Ruff SARIF
         if: always()
-        run: ruff check --output-format sarif service/app service/tests > ruff.sarif || true
+        run: ruff check --output-format sarif service/app > ruff.sarif || true
 
       - name: Upload SARIF to Code Scanning
         uses: github/codeql-action/upload-sarif@v3
