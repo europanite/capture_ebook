@@ -1,6 +1,10 @@
 name: CI
 on:
   push:
+    paths:
+      - "service/**"
+      - "docker-compose.yml"
+      - ".github/workflows/docker.yml"
   pull_request:
   workflow_dispatch:
   schedule:
