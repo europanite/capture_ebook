@@ -53,4 +53,4 @@ COPY . /app
 # User
 USER $HOST_USERNAME
 
-CMD ["pytest","-q","--maxfail=1","--disable-warnings"]
+CMD ["pytest","-q"]
