@@ -13,3 +13,4 @@ services:
       - /tmp/.X11-unix:/tmp/.X11-unix
       - ./service/app:/app
       - ./service/data:/data
+      - ./service/reports:/reports
