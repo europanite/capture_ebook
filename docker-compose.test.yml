@@ -14,3 +14,4 @@ services:
       - ./service/app:/app
       - ./service/data:/data
       - ./service/reports:/reports
+    command: ["pytest", "-q"]
