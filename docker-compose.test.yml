@@ -3,7 +3,12 @@ services:
     build:
       context: ./service/
       dockerfile: Dockerfile.test
-    tty: true
+    environment:
+      - JUPYTER_PLATFORM_DIRS=1
+      - COVERAGE_FILE=/tmp/.coverage
+    user: "0:0"
+    tty: false
+    restart: no
     volumes:
       - /tmp/.X11-unix:/tmp/.X11-unix
       - ./service/app:/app
