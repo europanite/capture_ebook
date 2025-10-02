@@ -35,7 +35,7 @@ RUN groupadd -g $HOST_GID $HOST_GROUPNAME && \
 # App workspace
 WORKDIR /app
 
+COPY pyproject.toml pytest.ini ./
+
 # User
 USER $HOST_USERNAME
-
-CMD ["pytest","-q"]
