@@ -17,15 +17,6 @@ RUN set -eux; \
         gnome-screenshot; \
     rm -rf /var/lib/apt/lists/*
 
-# Python dependencies  
-WORKDIR /root
-COPY requirements.txt /root/requirements.txt
-RUN set -eux; \
-    python -m pip install --upgrade pip setuptools wheel; \
-    if [ -s /root/requirements.txt ]; then \
-        pip install --no-cache-dir -r /root/requirements.txt; \
-    fi
-
 # receive environment values
 ARG HOST_USERNAME
 ARG HOST_GROUPNAME
@@ -42,13 +33,12 @@ ENV HOST_GID=${HOST_GID}
 RUN groupadd -g $HOST_GID $HOST_GROUPNAME && \
     useradd -m -s /bin/bash -u $HOST_UID -g $HOST_GID $HOST_USERNAME
 
+# Python dependencies  
 COPY requirements.txt ./
-
 RUN pip install --no-cache-dir -r requirements.txt
 
 # App workspace
 WORKDIR /app
-COPY . /app
 
 # User
 USER $HOST_USERNAME
