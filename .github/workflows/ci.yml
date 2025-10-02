@@ -32,7 +32,7 @@ jobs:
           docker compose -f docker-compose.yml -f docker-compose.test.yml run --rm service_test
       - name: Run service tests
         run: |
-          docker compose -f docker-compose.test.yml run --rm   --entrypoint /bin/sh backend_test -lc '
+          docker compose -f docker-compose.test.yml run --rm   --entrypoint /bin/sh service_test -lc '
               python -m coverage run -m pytest -q
           '
       - name: Upload coverage xml
