@@ -1,10 +1,11 @@
 import os
-import tempfile
 import shutil
+import tempfile
 import types
+
 import pytest
 
-import service.app.capture_ebook as cap
+import app.capture_ebook as cap
 
 
 @pytest.fixture
@@ -15,8 +16,6 @@ def tmp_outdir():
 
 
 def test_argparse_defaults():
-    parser = cap.argparse.ArgumentParser()
-    args = cap.main.__defaults__
     assert isinstance(cap.main, types.FunctionType)
 
 
@@ -44,9 +43,24 @@ def test_capture_flow(monkeypatch, tmp_outdir):
             with open(path, "wb") as f:
                 f.write(b"dummy")
 
-    monkeypatch.setattr(cap.pyautogui, "screenshot", lambda region: (calls.update(screenshot=calls["screenshot"]+1), DummyImage())[1])
-    monkeypatch.setattr(cap.pyautogui, "press", lambda key: calls.update(press=calls["press"]+1))
-    monkeypatch.setattr(cap, "wait_start_via_click", lambda: None)
+    monkeypatch.setattr(
+        cap.pyautogui, 
+        "screenshot", 
+        lambda region: 
+            (calls.update(screenshot=calls["screenshot"]+1), 
+            DummyImage()
+            )[1]
+        )
+    monkeypatch.setattr(
+        cap.pyautogui, 
+        "press", 
+        lambda key: calls.update(press=calls["press"]+1)
+        )
+    monkeypatch.setattr(
+        cap, 
+        "wait_start_via_click", 
+        lambda: None
+        )
 
     args = [
         "--outdir", os.path.basename(tmp_outdir),
