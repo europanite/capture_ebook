@@ -17,40 +17,25 @@ RUN set -eux; \
         gnome-screenshot; \
     rm -rf /var/lib/apt/lists/*
 
+# set variables
+ARG HOST_UID=1000
+ARG HOST_GID=1000
+ARG HOST_USERNAME=user
+ARG HOST_GROUPNAME=group
+
 # Python dependencies  
 WORKDIR /root
-COPY requirements.txt /root/requirements.txt
-RUN set -eux; \
-    python -m pip install --upgrade pip setuptools wheel; \
-    if [ -s /root/requirements.txt ]; then \
-        pip install --no-cache-dir -r /root/requirements.txt; \
-    fi
-
-# receive environment values
-ARG HOST_USERNAME
-ARG HOST_GROUPNAME
-ARG HOST_UID
-ARG HOST_GID
-
-# set variables
-ENV HOST_USERNAME=${HOST_USERNAME}
-ENV HOST_GROUPNAME=${HOST_GROUPNAME}
-ENV HOST_UID=${HOST_UID}
-ENV HOST_GID=${HOST_GID}
+COPY requirements.txt requirements.test.txt ./
+RUN pip install --no-cache-dir -r requirements.txt -r requirements.test.txt
 
 # Create user/group
 RUN groupadd -g $HOST_GID $HOST_GROUPNAME && \
     useradd -m -s /bin/bash -u $HOST_UID -g $HOST_GID $HOST_USERNAME
 
-WORKDIR /root
-COPY requirements.txt requirements.test.txt ./
-RUN pip install --no-cache-dir -r requirements.txt -r requirements.test.txt
-
 # App workspace
 WORKDIR /app
-COPY . /app
+
+COPY pyproject.toml pytest.ini ./
 
 # User
 USER $HOST_USERNAME
-
-CMD ["pytest","-q"]
