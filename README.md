@@ -2,6 +2,7 @@
 
 [![CI](https://github.com/europanite/capture_ebook/actions/workflows/ci.yml/badge.svg)](https://github.com/europanite/capture_ebook/actions/workflows/ci.yml)
 [![Python Lint](https://github.com/europanite/capture_ebook/actions/workflows/lint.yml/badge.svg)](https://github.com/europanite/capture_ebook/actions/workflows/lint.yml)
+[![CodeQL Advanced](https://github.com/europanite/capture_ebook/actions/workflows/codeql.yml/badge.svg)](https://github.com/europanite/capture_ebook/actions/workflows/codeql.yml)
 [![pages-build-deployment](https://github.com/europanite/capture_ebook/actions/workflows/pages/pages-build-deployment/badge.svg)](https://github.com/europanite/capture_ebook/actions/workflows/pages/pages-build-deployment)
 
 Auto ebook capture.
