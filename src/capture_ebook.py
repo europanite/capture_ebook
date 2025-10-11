@@ -28,7 +28,7 @@ def main():
         description= \
         "Take sequential screenshots of a viewport region and press a key to advance pages."
     )
-    parser.add_argument("--outdir", default="data", help="Output directory (default: data)")
+    parser.add_argument("--outdir", default="book", help="Output directory (default: book)")
     parser.add_argument("--count", type=int, default=50, help="Number of pages to capture")
     parser.add_argument(
         "--start-index",
