@@ -1,8 +1,8 @@
 # [Capture ebook](https://github.com/europanite/capture_ebook "Capture ebook")
 
-[![CI](https://github.com/europanite/capture_ebook/actions/workflows/ci.yml/badge.svg)](https://github.com/europanite/capture_ebook/actions/workflows/ci.yml)
 [![Python Lint](https://github.com/europanite/capture_ebook/actions/workflows/lint.yml/badge.svg)](https://github.com/europanite/capture_ebook/actions/workflows/lint.yml)
 [![pages-build-deployment](https://github.com/europanite/capture_ebook/actions/workflows/pages/pages-build-deployment/badge.svg)](https://github.com/europanite/capture_ebook/actions/workflows/pages/pages-build-deployment)
+[![CodeQL Advanced](https://github.com/europanite/capture_ebook/actions/workflows/codeql.yml/badge.svg)](https://github.com/europanite/capture_ebook/actions/workflows/codeql.yml)
 
 Auto ebook capture.
 
