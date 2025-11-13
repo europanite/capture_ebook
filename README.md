@@ -34,8 +34,13 @@ Example with custom arguments:
 python3 -m venv  env
 source env/bin/activate
 
-python3 ./src/capture_ebook.py   --outdir screenshots   --count 100   --left 500 --top 100 --width 800 --height 900   --next-key right   --per-page-wait 2.5
-
+python3 ./src/capture_ebook.py \
+--outdir screenshots \
+--count 100 \
+--left 500 --top 100 \
+--width 800 --height 900 \
+--next-key right \
+--per-page-wait 2
 ```
 
 And **Click** the interested window.
