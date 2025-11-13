@@ -31,9 +31,11 @@ Run the script with default settings:
 Example with custom arguments:
 ```bash
 
-python3 -m venv  env
+# create a virtual environment
+python3 -m venv env
 source env/bin/activate
 
+# start capturing
 python3 ./src/capture_ebook.py \
 --outdir screenshots \
 --count 100 \
