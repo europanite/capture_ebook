@@ -70,7 +70,8 @@ def main():
         print("Invalid region: --width and --height must be positive.")
         return
 
-    dir_path = os.path.join("/data", args.outdir)
+    os.makedirs("data",exist_ok=True)
+    dir_path = os.path.join("data", args.outdir)
     os.makedirs(dir_path, exist_ok=True)
 
     region = (args.left, args.top, args.width, args.height)

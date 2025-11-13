@@ -19,18 +19,26 @@ It automatically saves each page as an image file and simulates pressing a key t
 
 ---
 
+## Prerequired
+- python3-venv
+- python3-tk 
+- python3-dev
+- gnome-screenshot
 
 ## Usage
 
 Run the script with default settings:
-```bash
-python capture_ebook.py
-```
-
 Example with custom arguments:
 ```bash
-python capture_ebook.py   --outdir screenshots   --count 100   --left 500 --top 100 --width 800 --height 900   --next-key right   --per-page-wait 2.5
+
+python3 -m venv  env
+source env/bin/activate
+
+python3 ./src/capture_ebook.py   --outdir screenshots   --count 100   --left 500 --top 100 --width 800 --height 900   --next-key right   --per-page-wait 2.5
+
 ```
+
+And **Click** the interested window.
 
 ---
 
