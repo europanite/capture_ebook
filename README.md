@@ -4,7 +4,7 @@
 [![pages-build-deployment](https://github.com/europanite/capture_ebook/actions/workflows/pages/pages-build-deployment/badge.svg)](https://github.com/europanite/capture_ebook/actions/workflows/pages/pages-build-deployment)
 [![CodeQL Advanced](https://github.com/europanite/capture_ebook/actions/workflows/codeql.yml/badge.svg)](https://github.com/europanite/capture_ebook/actions/workflows/codeql.yml)
 
-Auto ebook capture.
+Automatic ebook capture.
 
 This script captures sequential screenshots of an online ebook page viewer.  
 It automatically saves each page as an image file and simulates pressing a key to advance pages.
@@ -34,6 +34,7 @@ Example with custom arguments:
 # create a virtual environment
 python3 -m venv env
 source env/bin/activate
+pip3 install -r requirements.txt
 
 # start capturing
 python3 ./src/capture_ebook.py \
