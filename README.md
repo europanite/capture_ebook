@@ -19,23 +19,35 @@ It automatically saves each page as an image file and simulates pressing a key t
 
 ---
 
-## Prerequired
-- python3-venv
-- python3-tk 
-- python3-dev
-- gnome-screenshot
+## Requirements
+
+- Python 3.9+
+- Dependencies:
+    - python3-venv
+    - python3-tk 
+    - python3-dev
+    - gnome-screenshot
+
+
 
 ## Usage
 
 Run the script with default settings:
 Example with custom arguments:
-```bash
 
+
+### 0. Create virtual environment
+
+```bash
 # create a virtual environment
 python3 -m venv env
 source env/bin/activate
-pip3 install -r requirements.txt
+pip install -r requirements.txt
+```
 
+### 1. Capture ebooks
+
+```bash
 # start capturing
 python3 ./src/capture_ebook.py \
 --outdir screenshots \
@@ -47,6 +59,19 @@ python3 ./src/capture_ebook.py \
 ```
 
 And **Click** the interested window.
+
+### 2. Test
+
+```bash
+pip install -r requirements.test.txt
+pytest
+```
+
+### 3. Deactivate environment
+
+```bash
+deactivate
+```
 
 ---
 
