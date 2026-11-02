@@ -1,6 +1,6 @@
-title: "capture_ebook"
+title: "capture-ebook"
 description: "Auto ebook capture"
-baseurl: "/capture_ebook"
+baseurl: "/capture-ebook"
 url: "https://europanite.github.io"
 theme: minima
 markdown: kramdown

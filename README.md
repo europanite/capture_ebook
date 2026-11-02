@@ -1,11 +1,11 @@
-# [Capture ebook](https://github.com/europanite/capture_ebook "Capture ebook")
+# [Capture ebook](https://github.com/europanite/capture-ebook "Capture ebook")
 
 [![Python](https://img.shields.io/badge/python-3.9|%203.10%20|%203.11|%203.12|%203.13-blue)](https://www.python.org/)
 ![OS](https://img.shields.io/badge/OS-Linux%20%7C%20macOS%20%7C%20Windows-blue)
 
-[![Python Lint](https://github.com/europanite/capture_ebook/actions/workflows/lint.yml/badge.svg)](https://github.com/europanite/capture_ebook/actions/workflows/lint.yml)
-[![pages-build-deployment](https://github.com/europanite/capture_ebook/actions/workflows/pages/pages-build-deployment/badge.svg)](https://github.com/europanite/capture_ebook/actions/workflows/pages/pages-build-deployment)
-[![CodeQL Advanced](https://github.com/europanite/capture_ebook/actions/workflows/codeql.yml/badge.svg)](https://github.com/europanite/capture_ebook/actions/workflows/codeql.yml)
+[![Python Lint](https://github.com/europanite/capture-ebook/actions/workflows/lint.yml/badge.svg)](https://github.com/europanite/capture-ebook/actions/workflows/lint.yml)
+[![pages-build-deployment](https://github.com/europanite/capture-ebook/actions/workflows/pages/pages-build-deployment/badge.svg)](https://github.com/europanite/capture-ebook/actions/workflows/pages/pages-build-deployment)
+[![CodeQL Advanced](https://github.com/europanite/capture-ebook/actions/workflows/codeql.yml/badge.svg)](https://github.com/europanite/capture-ebook/actions/workflows/codeql.yml)
 
 Automatic ebook capture.
 
@@ -52,7 +52,7 @@ pip install -r requirements.txt
 
 ```bash
 # start capturing
-python3 ./src/capture_ebook.py \
+python3 ./src/capture-ebook.py \
 --outdir screenshots \
 --count 100 \
 --left 500 --top 100 \
